@@ -1,4 +1,4 @@
-name: GHCR: Publish image to Project
+name: GHCR - Publish image to GitHub project
 
 on:
   push:
