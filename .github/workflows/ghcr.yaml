@@ -1,3 +1,5 @@
+name: GHCR: Publish image
+
 on:
   push:
   workflow_dispatch:
