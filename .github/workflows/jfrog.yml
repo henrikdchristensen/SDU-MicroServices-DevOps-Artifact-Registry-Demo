@@ -1,4 +1,4 @@
-name: Build and Tag Docker Image
+name: JFrog: Push image
 
 on:
   push:
