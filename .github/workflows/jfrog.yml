@@ -1,4 +1,4 @@
-name: JFrog: Publish image to JFrog
+name: JFrog - Publish image to JFrog cloud
 
 on:
   push:
