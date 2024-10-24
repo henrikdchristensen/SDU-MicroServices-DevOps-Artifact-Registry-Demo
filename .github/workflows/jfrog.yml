@@ -1,4 +1,4 @@
-name: JFrog: Push image
+name: JFrog: Publish image to JFrog
 
 on:
   push:
@@ -18,14 +18,14 @@ jobs:
           JF_URL: ${{ secrets.JF_URL }}
           JF_ACCESS_TOKEN: ${{ secrets.JF_ACCESS_TOKEN }}
 
-      - name: Build Tag and push Docker Image
+      - name: Build tag and push Docker image
         env:
           IMAGE_NAME: hench13.jfrog.io/sdu-demo-docker/jfrog-docker-example-image:${{ github.run_number }}
         run: |
           jf docker build -t $IMAGE_NAME .
           jf docker push $IMAGE_NAME
           
-      - name: Publish Build info With JFrog CLI
+      - name: Publish build info with JFrog CLI
         env:
           # Generated and maintained by GitHub
           JFROG_CLI_BUILD_NAME: jfrog-docker-build-example
