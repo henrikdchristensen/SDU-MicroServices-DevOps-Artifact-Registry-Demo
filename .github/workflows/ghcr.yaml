@@ -1,4 +1,4 @@
-name: GHCR: Publish image
+name: GHCR: Publish image to Project
 
 on:
   push:
