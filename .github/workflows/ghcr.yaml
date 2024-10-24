@@ -1,0 +1,32 @@
+on:
+  push:
+  workflow_dispatch:
+
+env:
+  IMAGE: ghcr.io/${{ github.repository }}:latest
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+
+    permissions:
+      packages: write
+      contents: read
+
+    steps:
+      - uses: actions/checkout@v3.3.0
+
+      - name: Create a Dockerfile
+        run: |
+          echo 'FROM alpine' > Dockerfile
+          echo 'ENTRYPOINT ["echo", "Hello from ${{ github.repository }}!"]' >> Dockerfile
+          echo 'LABEL org.opencontainers.image.description "This image was built from commit ${{ github.sha }}"' >> Dockerfile
+
+      - name: Build image
+        run: docker build . -t ${IMAGE,,} # lowercase IMAGE
+
+      - name: Login to ghcr.io
+        run: docker login https://ghcr.io -u token --password-stdin <<< ${{ github.token }}
+
+      - name: Publish image
+        run: docker push ${IMAGE,,} # lowercase IMAGE
