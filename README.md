@@ -38,6 +38,7 @@
 5. Make sure no pip package is located in JFrog.
 6. Pull package `pip install hello-package-pru` to see a new package is cached in JFrog.
 7. Show GitHub repo and run GitHub Action https://github.com/henrikdchristensen/SDU-MicroServices-DevOps-Artifact-Registry-Demo/actions/workflows/jfrog.yml to see a new Docker build is created in JFrog.
+8. Show vulnerability in JFrog: https://hench13.jfrog.io/ui/scans-list/repositories/sdu-demo-docker-local/scan-descendants/jfrog-docker-example-image%2F9?type=packages&version=9&package_id=docker%3A%2F%2Fjfrog-docker-example-image&path=sdu-demo-docker-local%2Fjfrog-docker-example-image%2F9%2Fmanifest.json&page_type=security-vulnerabilities&severity=high
 
 ## Nexus Repository Manager demo
 ### Requirements
