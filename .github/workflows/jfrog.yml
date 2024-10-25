@@ -1,6 +1,7 @@
 name: JFrog - Publish image to JFrog cloud
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - main
